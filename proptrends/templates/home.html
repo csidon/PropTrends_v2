@@ -1,0 +1,27 @@
+<!-- This will soon be transferred to the home.html page, with the home.html page content swapped here -->
+
+{% extends "layout.html" %}
+{% block content %}
+	<section class="vh-40">
+<!--		Container settings-->
+		<div class="container-fluid py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100 g-0" style="background-color: #C0DFE4; ">
+				<div class="col-md-6 col-lg-5 col-xl-3 offset-xl-1">
+					<!--Just basic text here-->
+					<h2>Analyse New Zealand's current property trends today!</h2>
+					<a href={{ url_for('users.register') }} class="btn btn-sm btn-outline-primary">Create New Account</a>
+					<a href={{ url_for('users.login') }} class="btn btn-sm btn-outline-secondary">Log In</a>
+
+					
+				</div>
+				<div class="col-lg-6 px-0 d-none d-lg-block">
+        			<img src="https://cdn-res.keymedia.com/cdn-cgi/image/w=1000,h=600,f=auto/https://cdn-res.keymedia.com/cms/images/us/076/0308_637783789283731367.jpg"
+          				alt="Login image" class ="login-pic" style="object-fit: cover; object-position: right;">
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock content %}
+
+
+

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+	{% block content %}
+ <style>
+    /* Center the container */
+    html, body {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      background-image: url('static/images/back_home.png');
+      background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+    }
+  </style>
+	<div class="container">
+		<h1 style="text-align: center;">Kia ora, {{ current_user.user_first_name }}!</h1>
+		<hr>
+		<div class="container pt-4">
+		 <div class="row mr-3">
+		  <div class="col-md-4">
+			<div class="card" style="width: 20rem;height: 27rem;">
+			  <img src="https://pbs.twimg.com/media/ELqtzHeU0AADju4?format=png&name=900x900" class="card-img-top" alt="Client Information" style="height: 15rem;">
+			  <div class="card-body">
+				<h5 class="card-title">ScraperTool</h5>
+				<p class="card-text">Get the latest data!</p>
+				<a href="{{ url_for('scraper.scrapertool') }}" class="btn btn-submit btn-info">Get Data</a>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-md-3">
+		  </div>
+		  <div class="col-md-4">
+			<div class="card" style="width: 20rem;height: 27rem;">
+			  <img src="https://media.licdn.com/dms/image/C4E12AQFQRKq2FKyP5w/article-cover_image-shrink_600_2000/0/1562942235069?e=1697673600&v=beta&t=nMrZLCP-jDEw_x23R4jZYAXtXaXxp6BMa6_ThW8B1C8"\
+			   class="card-img-top" style="height: 15rem;"  alt="Client Preferences">
+			  <div class="card-body">
+				<h5 class="card-title">DataCrunch</h5>
+				<p class="card-text">Look at the current data</p>
+				<a href="{{ url_for('scraper.list_scrapings') }}" class="btn btn-submit btn-info">View Data</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		</div>
+	</div>
+	
+
+
+	
+{% endblock content %}
+
+

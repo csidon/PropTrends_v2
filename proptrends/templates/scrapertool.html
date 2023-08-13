@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid px-1 py-5 mx-5">
+	<div class="row d-flex justify-content-center">
+		<div class="container pt-3">
+			<form class="form-group" action="" method="POST" autocomplete="off" id="scraping-form">
+				<!-- # Hidden tag method adds a CSRF token -->
+				{{ form.hidden_tag() }}
+				
+				{% if form.suburb_to_scrape.choices|length == 1 %}
+					{{ form.submit(class="btn btn-block btn-outline-secondary btn-submit") }}
+				{% else %}
+					{{ form.suburb_to_scrape.label(class="form-control-label") }}
+					{{ form.suburb_to_scrape(class="form-control form-control-sm") }}
+					<div class="pt-3">
+						{{ form.submit(class="btn btn-block btn-outline-secondary btn-submit") }}
+					</div>
+				{% endif %}
+			</form>		
+		</div>
+
+		  
+		<div class="container pt-3">
+			<p>Please don't navigate away from this page while the scraper is running - We're not that advanced yet!<br>
+			If you would like to keep doing stuff with us, you can open another page *to insert button here*</p>
+
+			<a class="btn btn-outline-success" href="/" target="_blank" role="button">Keep Using PropTrends</a>
+
+		</div>
+
+
+	</div>
+</div>
+<script src="{{ url_for('static', filename='myscripts.js') }}"></script>
+
+{% endblock content %}

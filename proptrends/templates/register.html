@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="vh-40">
+<!--		Container settings-->
+		<div class="container-fluid py-5 h-100" style="background-color: #C0DFE4; ">
+			<div class="row d-flex justify-content-center align-items-center h-100 g-0" >
+				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+					<form method="POST" action="">
+					<!-- # Hidden tag method adds a CSRF token -->
+					{{ form.hidden_tag() }}
+
+						<legend class="border-bottom text-center mb-5" style = "font-weight: bold; font-size: 32px; color: #5E5E5E;"> Welcome</legend>
+						<div class="form-outline mb-2">
+							{{ form.user_first_name.label(class="form-control-label") }}
+							{{ form.user_first_name(class="form-control form-control-lg") }}
+						</div>
+						<div class="form-outline mb-2">
+							{{ form.user_last_name.label(class="form-control-label") }}
+							{{ form.user_last_name(class="form-control form-control-lg") }}
+						</div>
+						<div class="form-outline mb-2">
+							{{ form.user_email.label(class="form-control-label") }}
+
+							{% if form.user_email.errors %}
+								{{ form.user_email(class="form-control form-control-lg is-invalid")}}
+								<div class="invalid-feedback">
+									{% for error in form.user_email.errors %}
+										<span> {{ error }} </span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.user_email(class="form-control form-control-lg") }}
+							{% endif %}
+
+						</div>
+						<!-- Password label and error messages -->
+						<div class="form-outline mb-2">
+							{{ form.user_password.label(class="form-control-label") }}
+							{% if form.user_password.errors %}
+								{{ form.user_password(class="form-control form-control-lg is-invalid")}}
+								<div class="invalid-feedback">
+									{% for error in form.user_password.errors %}
+										<span> {{ error }} </span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.user_password(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+						<div class="form-outline mb-1">
+							{{ form.confirm_password.label(class="form-control-label") }}
+							{% if form.confirm_password.errors %}
+								{{ form.confirm_password(class="form-control form-control-lg is-invalid")}}
+								<div class="invalid-feedback">
+									{% for error in form.confirm_password.errors %}
+										<span> {{ error }} </span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.confirm_password(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+
+						<div class="text-center text-lg-start mt-4 pt-2">
+						{{ form.submit(class="btn btn-outline-secondary btn-lg btn-block login-btn") }}
+						</div>
+						<div class="text-center text-lg-start mt-4 pt-2">
+							<small class="small mt-2 pt-1 mb-0">
+							Already have an account? <a class="link-primary" href="{{ url_for('users.login') }}">Log in here</a>
+							</small>
+						</div>
+					</form>
+				</div>
+			<div class="col-lg-6 px-0 d-none d-lg-block">
+        			<img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2021/12/housing_predictions.jpg"
+          				alt="Login image" class ="login-pic" style="object-fit: cover; object-position: right;">
+				</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}
